@@ -27,7 +27,7 @@ jobs:
 
     - name: build docker image
       run: |
-        docker build -t $DOCKER_USER/${GITHUB_REPOSITORY#*/}:${GITHUB_REF##*/}_${{ steps.date.outputs.date }} .
+        docker build -ft docker/Dockerfile $DOCKER_USER/${GITHUB_REPOSITORY#*/}:${GITHUB_REF##*/}_${{ steps.date.outputs.date }} .
         docker images
 
     - name: push docker image
